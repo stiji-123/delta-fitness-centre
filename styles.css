@@ -1,25 +1,22 @@
 /* ==============================================
-   Delta Fitness Centre - Full Styles.css with Logo Color Theme
-   Updated: January 2026
+   Delta Fitness Centre - Professional & Mobile-Friendly Theme
+   Full Responsive - Looks great on Desktop & Phone
+   Using Logo Exact Colors
    ============================================== */
 
-/* Root Variables - Logo Brand Colors */
 :root {
-  /* Core brand colors from the logo */
-  --color-black: #000000;              /* Background, outlines */
-  --color-scarlet-red: #C8102E;        /* Main energy color - outer ring */
-  --color-sandy-tan: #D9A066;          /* Skin tone for arm illustration */
-  --color-golden-tan: #C68E17;         /* EST-2023 circle, accents */
-  --color-white: #FFFFFF;              /* Text on dark background */
-  --color-deep-orange: #FF6600;        /* Star/sun burst accent */
-
-  /* Supporting colors (derived for website harmony) */
-  --color-dark-gray: #1a1a1a;          /* Card backgrounds */
-  --color-charcoal: #111111;           /* Slightly lighter black for depth */
-  --color-red-accent: #D63031;         /* Slightly brighter red for buttons/hovers */
+  --color-black: #000000;
+  --color-scarlet-red: #C8102E;
+  --color-sandy-tan: #D9A066;
+  --color-golden-tan: #C68E17;
+  --color-white: #FFFFFF;
+  --color-deep-orange: #FF6600;
+  --color-dark-gray: #1a1a1a;
+  --color-charcoal: #111111;
+  --color-red-accent: #D63031;
+  --color-light-gray: #e0e0e0;
 }
 
-/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -30,397 +27,264 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--color-black);
     color: var(--color-white);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* Header */
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: var(--color-scarlet-red);
-    position: sticky;
-    top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(200,16,46,0.2);
 }
 
-.logo img {
-    height: 70px;
-}
+.logo img { height: 60px; }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 2.5rem;
+    list-style: none;
 }
 
 nav a {
     color: var(--color-white);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.1em;
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    color: var(--color-golden-tan);
-}
+nav a:hover { color: var(--color-golden-tan); }
 
 /* Hero */
 .hero {
+    height: 100vh;
     position: relative;
-    height: 90vh;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .hero video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
+    filter: brightness(0.55);
 }
 
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 20px;
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    padding: 0 5%;
 }
 
 .hero h1 {
-    font-size: 4em;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    letter-spacing: 6px;
     color: var(--color-white);
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    margin-bottom: 1rem;
+    text-shadow: 0 5px 25px rgba(0,0,0,0.8);
 }
 
-.hero p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
+.hero .tagline {
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    color: var(--color-golden-tan);
+    margin-bottom: 1.5rem;
 }
 
-.hero .sub {
-    font-size: 1.3em;
-    opacity: 0.9;
+.cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .cta-btn {
-    background-color: var(--color-scarlet-red);
-    color: var(--color-white);
-    padding: 15px 30px;
-    margin: 10px;
+    background: var(--color-scarlet-red);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.2em;
     text-transform: uppercase;
-    transition: all 0.3s;
-    display: inline-block;
+    transition: 0.4s;
+    box-shadow: 0 8px 25px rgba(200,16,46,0.4);
 }
 
 .cta-btn:hover {
-    background-color: var(--color-golden-tan);
+    background: var(--color-golden-tan);
     transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(198,142,23,0.5);
 }
 
-.cta-btn.secondary {
-    background-color: transparent;
-    border: 2px solid var(--color-white);
-}
-
-.cta-btn.secondary:hover {
-    background-color: var(--color-white);
-    color: var(--color-black);
-}
-
-/* General Section */
+/* Sections */
 section {
-    padding: 80px 40px;
-    text-align: center;
+    padding: 10rem 5% 8rem;
 }
 
 h2 {
-    font-size: 3em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
     color: var(--color-golden-tan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-/* About */
-.about p {
-    max-width: 900px;
-    margin: 0 auto 40px;
-    font-size: 1.2em;
-}
-
-/* Coaches - Circular Photo + Side Details */
+/* Coaches - Modern Cards */
 .coaches {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .coach {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-charcoal);
-    padding: 35px;
-    border-radius: 20px;
-    width: 680px;
-    max-width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    transition: all 0.4s ease;
-    gap: 40px;
-    border: 1px solid var(--color-scarlet-red);
+    background: var(--color-charcoal);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transition: 0.4s;
+    border: 1px solid rgba(200,16,46,0.15);
 }
 
 .coach:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 40px rgba(200, 16, 46, 0.35);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(200,16,46,0.3);
 }
 
 .coach img {
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
+    width: 100%;
+    height: 360px;
     object-fit: cover;
-    border: 8px solid var(--color-scarlet-red);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    flex-shrink: 0;
+    border-bottom: 8px solid var(--color-scarlet-red);
 }
 
 .coach-details {
-    flex: 1;
+    padding: 2.5rem;
+    text-align: center;
 }
 
 .coach-details h3 {
-    font-size: 2.1em;
+    font-size: 2.4rem;
     color: var(--color-golden-tan);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
 }
 
 .coach-details span {
-    font-size: 0.7em;
+    font-size: 1rem;
+    color: var(--color-light-gray);
     display: block;
-    opacity: 0.8;
+    margin-bottom: 1.5rem;
 }
 
 .coach-details p {
-    font-size: 1.15em;
-    color: #dddddd;
-    line-height: 1.6;
-}
-
-.difference {
-    font-size: 1.3em;
-    font-style: italic;
-    color: var(--color-golden-tan);
-    margin-top: 40px;
+    color: var(--color-light-gray);
+    font-size: 1.1rem;
 }
 
 /* Pricing */
 .pricing table {
+    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
     border-collapse: collapse;
-    width: 70%;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .pricing th, .pricing td {
-    border: 2px solid var(--color-golden-tan);
-    padding: 15px;
-    text-align: left;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(200,16,46,0.2);
 }
 
 .pricing th {
-    background-color: var(--color-scarlet-red);
-    text-transform: uppercase;
-}
-
-.pricing td {
-    background-color: var(--color-dark-gray);
+    background: var(--color-scarlet-red);
+    color: white;
 }
 
 /* Gallery */
 .gallery-container {
-    display: flex;
-    overflow: hidden;
-    margin: 40px auto;
-    width: 90%;
-    max-width: 1200px;
-    height: 400px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.gallery-container img,
-.gallery-container video {
-    min-width: 100%;
-    height: 100%;
+.gallery-container img, .gallery-container video {
+    width: 100%;
+    aspect-ratio: 4/3;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-radius: 12px;
+    transition: 0.4s;
 }
 
-button {
-    background-color: var(--color-scarlet-red);
-    color: var(--color-white);
-    border: none;
-    padding: 12px 25px;
-    margin: 20px 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--color-golden-tan);
+.gallery-container img:hover, .gallery-container video:hover {
+    transform: scale(1.05);
 }
 
 /* Contact */
-.contact p {
-    font-size: 1.3em;
-    margin: 20px 0;
-}
-
-.map {
-    margin: 40px 0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
 .map iframe {
     width: 100%;
     height: 500px;
-    border: 0;
-}
-
-.contact ul {
-    list-style: none;
-    margin: 20px 0;
-}
-
-.contact li {
-    font-size: 1.5em;
-    margin: 10px 0;
+    border-radius: 12px;
+    border: none;
 }
 
 /* WhatsApp */
 .whatsapp-buttons {
     display: flex;
     flex-wrap: wrap;
+    gap: 1.5rem;
     justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
+    margin-top: 2.5rem;
 }
 
 .whatsapp-btn {
-    background-color: #25D366;
-    color: var(--color-white);
-    padding: 16px 35px;
-    text-decoration: none;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color: white;
+    padding: 1.2rem 3rem;
     border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.4s;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.3);
 }
 
 .whatsapp-btn:hover {
-    background-color: #20b358;
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    box-shadow: 0 15px 40px rgba(37,211,102,0.5);
 }
 
 /* Footer */
 footer {
-    background-color: var(--color-scarlet-red);
+    background: var(--color-charcoal);
     text-align: center;
-    padding: 30px;
-    font-size: 1.1em;
+    padding: 4rem 5%;
+    border-top: 1px solid rgba(200,16,46,0.15);
 }
 
-/* ==============================================
-   RESPONSIVE DESIGN
-   ============================================== */
-
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 3em; }
-    .coaches { gap: 40px; }
-    .pricing table { width: 90%; }
-    .gallery-container { height: 300px; }
-}
-
+/* Mobile - Keep similar layout, just scale down */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    
-    .hero h1 { font-size: 2.5em; }
-    .hero p { font-size: 1.2em; }
-    
-    section { padding: 60px 20px; }
-    h2 { font-size: 2.5em; }
-    
-    /* Coaches mobile stacking */
-    .coaches {
-        flex-direction: column;
-        gap: 35px;
-    }
-    
-    .coach {
-        flex-direction: column;
-        text-align: center;
-        width: 95%;
-        padding: 30px 20px;
-    }
-    
-    .coach img {
-        margin-bottom: 25px;
-        width: 200px;
-        height: 200px;
-        border-width: 6px;
-    }
-    
-    .whatsapp-buttons {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .whatsapp-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 { font-size: 2em; }
-    .coach img {
-        width: 180px;
-        height: 180px;
-    }
-    .coach-details h3 { font-size: 1.7em; }
+    header { padding: 1rem 5%; }
+    nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+    .hero h1 { font-size: 3.5rem; }
+    .coach img { height: 300px; }
+    section { padding: 7rem 5% 5rem; }
+    h2 { font-size: 2.8rem; }
+    .whatsapp-btn { width: 100%; text-align: center; }
 }
